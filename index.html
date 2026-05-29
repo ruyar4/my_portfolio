@@ -33,6 +33,7 @@
     </header>
 
     <main>
+
         <!-- Floating Elements -->
         <div class="floating-elements">
             <div class="floating-circle floating-circle-1"></div>
@@ -59,6 +60,28 @@
                             <a href="https://github.com/ruyar4" target="_blank">github.com/ruyar4</a>
                         </div>
                     </div>
+                    <!-- Binary Clock -->
+                    <div class="binary-clock">
+                        <div class="binary-clock-title">Binary Time</div>
+                        <div class="binary-display">
+                            <div class="binary-column">
+                                <div class="binary-label">H</div>
+                                <div class="binary-dots" id="hours-tens"></div>
+                                <div class="binary-dots" id="hours-ones"></div>
+                            </div>
+                            <div class="binary-column">
+                                <div class="binary-label">M</div>
+                                <div class="binary-dots" id="minutes-tens"></div>
+                                <div class="binary-dots" id="minutes-ones"></div>
+                            </div>
+                            <div class="binary-column">
+                                <div class="binary-label">S</div>
+                                <div class="binary-dots" id="seconds-tens"></div>
+                                <div class="binary-dots" id="seconds-ones"></div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="hero-actions">
                         <a href="#contact" class="btn btn-primary">Contactar</a>
                         <a href="#about" class="btn btn-secondary">Ver CV</a>
@@ -73,6 +96,38 @@
                 <div class="about-content">
                     <p>Tech Lead y Senior Software Engineer con más de <strong>10 años de experiencia</strong> en el diseño, desarrollo y escalamiento de aplicaciones web de alto tráfico. Especialista en <strong>Ruby on Rails, React y AWS</strong>, con sólida trayectoria liderando equipos técnicos, definiendo arquitectura de sistemas, optimizando procesos de desarrollo y acompañando el crecimiento de productos digitales B2C.</p>
                     <p>Experiencia en toma de decisiones técnicas estratégicas, migraciones a la nube, creación de data warehouses y mejora continua basada en buenas prácticas de desarrollo, testing y metodologías ágiles.</p>
+                </div>
+
+                <!-- Terminal Section -->
+                <div class="terminal-container">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="terminal-button close"></span>
+                                <span class="terminal-button minimize"></span>
+                                <span class="terminal-button maximize"></span>
+                            </div>
+                            <span class="terminal-title">rudyard@portfolio:~$</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="ascii-art">
+                                <pre>
+    ____            __                   __   ______           __
+   / __ \__  ______/ /_  ____  _________/ /  / ____/_  _______/ /____  _____
+  / /_/ / / / / __  / / / / __ `/ ___/ __  /  / /_  / / / / ___/ __/ _ \/ ___/
+ / _, _/ /_/ / /_/ / /_/ / /_/ / /  / /_/ /  / __/ / /_/ (__  ) /_/  __/ /
+/_/ |_|\__,_/\__,_/\__, /\__,_/_/   \__,_/  /_/    \__,_/____/\__/\___/_/
+                 /____/
+                                </pre>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">rudyard@portfolio:~$ </span>
+                                <span class="command" id="typewriter-command"></span>
+                                <span class="cursor">|</span>
+                            </div>
+                            <div class="terminal-output" id="terminal-output"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -176,6 +231,9 @@
                 <h2 class="section-title">Habilidades Técnicas</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
+                        <div class="skill-icon">
+                            <i class="fas fa-code skill-icon-fa"></i>
+                        </div>
                         <h3>Lenguajes</h3>
                         <div class="skill-list">
                             <span class="skill-tag">Ruby</span>
@@ -187,6 +245,9 @@
                     </div>
 
                     <div class="skill-category">
+                        <div class="skill-icon">
+                            <i class="fas fa-database skill-icon-fa"></i>
+                        </div>
                         <h3>Database</h3>
                         <div class="skill-list">
                             <span class="skill-tag">PostgreSQL</span>
@@ -195,6 +256,9 @@
                     </div>
 
                     <div class="skill-category">
+                        <div class="skill-icon">
+                            <i class="fas fa-cube skill-icon-fa"></i>
+                        </div>
                         <h3>Frameworks & Librerías</h3>
                         <div class="skill-list">
                             <span class="skill-tag">Ruby on Rails</span>
@@ -205,6 +269,9 @@
                     </div>
 
                     <div class="skill-category">
+                        <div class="skill-icon">
+                            <i class="fas fa-cloud skill-icon-fa"></i>
+                        </div>
                         <h3>DevOps & Cloud</h3>
                         <div class="skill-list">
                             <span class="skill-tag">AWS (EC2, S3, RDS)</span>
@@ -216,6 +283,9 @@
                     </div>
 
                     <div class="skill-category">
+                        <div class="skill-icon">
+                            <i class="fas fa-check-circle skill-icon-fa"></i>
+                        </div>
                         <h3>Testing & Calidad</h3>
                         <div class="skill-list">
                             <span class="skill-tag">RSpec</span>
@@ -224,6 +294,9 @@
                     </div>
 
                     <div class="skill-category">
+                        <div class="skill-icon">
+                            <i class="fas fa-cogs skill-icon-fa"></i>
+                        </div>
                         <h3>Metodologías</h3>
                         <div class="skill-list">
                             <span class="skill-tag">SCRUM</span>

@@ -210,6 +210,66 @@ body {
     text-decoration: underline;
 }
 
+/* Binary Clock */
+.binary-clock {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-block;
+}
+
+.binary-clock-title {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.binary-display {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.binary-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.binary-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.binary-dots {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.binary-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.binary-dot.active {
+    background: #00ff41;
+    box-shadow: 0 0 10px #00ff41;
+}
+
 .hero-actions {
     display: flex;
     justify-content: center;
@@ -295,6 +355,281 @@ section {
 
 .about-content p {
     margin-bottom: 1.5rem;
+}
+
+/* Terminal Section */
+.terminal-container {
+    max-width: 800px;
+    margin: 3rem auto 0;
+}
+
+.terminal {
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-family: 'Courier New', monospace;
+}
+
+.terminal-header {
+    background: #323232;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #444;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-button.close {
+    background: #ff5f57;
+}
+
+.terminal-button.minimize {
+    background: #ffbd2e;
+}
+
+.terminal-button.maximize {
+    background: #28ca42;
+}
+
+.terminal-title {
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+    background: #1e1e1e;
+    color: #00ff41;
+}
+
+.ascii-art {
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+.ascii-art pre {
+    font-size: 0.6rem;
+    line-height: 1.1;
+    color: #00ff41;
+    margin: 0;
+    text-shadow: 0 0 5px #00ff41;
+}
+
+.terminal-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.prompt {
+    color: #00ff41;
+    font-weight: bold;
+}
+
+.command {
+    color: #ffffff;
+    margin-left: 0.5rem;
+}
+
+.cursor {
+    color: #00ff41;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+.terminal-output {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .ascii-art pre {
+        font-size: 0.4rem;
+    }
+
+    .terminal-body {
+        padding: 1rem;
+    }
+}
+
+/* Konami Code Modal */
+.konami-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.konami-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+    border: 2px solid #00ff41;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 0 50px rgba(0, 255, 65, 0.3);
+    position: relative;
+}
+
+.konami-header {
+    background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+    color: #1a1a2e;
+    padding: 1rem 2rem;
+    border-radius: 18px 18px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.konami-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.konami-close {
+    background: none;
+    border: none;
+    color: #1a1a2e;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.konami-close:hover {
+    background: rgba(26, 26, 46, 0.2);
+    transform: scale(1.1);
+}
+
+.konami-body {
+    padding: 2rem;
+    color: #fff;
+}
+
+.ascii-celebration {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.ascii-celebration pre {
+    color: #00ff41;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    margin: 0;
+    text-shadow: 0 0 10px #00ff41;
+}
+
+.secret-stats {
+    background: rgba(0, 255, 65, 0.1);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.secret-stats h3 {
+    color: #00ff41;
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+}
+
+.secret-stats ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.secret-stats li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.secret-stats li:last-child {
+    border-bottom: none;
+}
+
+.secret-stats li:hover {
+    color: #00ff41;
+    padding-left: 1rem;
+}
+
+.secret-message {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.secret-message p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .konami-content {
+        margin: 1rem;
+        max-height: 90vh;
+    }
+
+    .konami-header {
+        padding: 1rem;
+    }
+
+    .konami-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .konami-body {
+        padding: 1rem;
+    }
+
+    .ascii-celebration pre {
+        font-size: 0.6rem;
+    }
 }
 
 /* Experience Section */
@@ -492,6 +827,28 @@ section {
 
 .skill-category:hover::before {
     opacity: 1;
+}
+
+.skill-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    height: 60px;
+}
+
+.skill-icon-fa {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    animation: pulse 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover .skill-icon-fa {
+    color: var(--secondary-color);
+    transform: scale(1.1) rotate(5deg);
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
 }
 
 .skill-category h3 {
@@ -769,6 +1126,10 @@ section {
     .contact-card:hover {
         transform: translateY(-3px);
     }
+
+    .skill-icon-fa {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -886,6 +1247,7 @@ html {
 .pulse {
     animation: pulse 2s ease-in-out infinite;
 }
+
 
 /* Simplified Floating Elements */
 .floating-elements {
